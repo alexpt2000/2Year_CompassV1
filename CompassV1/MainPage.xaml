@@ -1,0 +1,74 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="CompassV1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBarIconButton x:Name="btGetLocation" Click="btGetLocation_Click" IconUri="/Assets/AppBar/sync.png" IsEnabled="True" Text="Get Location"/>
+            <shell:ApplicationBarIconButton x:Name="btGetMap" Click="btGetMap_Click" IconUri="/Assets/AppBar/feature.search.png" IsEnabled="True" Text="Map"/>
+            <shell:ApplicationBarIconButton x:Name="btRate" Click="btRate_Click" IconUri="/Assets/AppBar/favs.png" IsEnabled="True" Text="Rate"/>
+            <shell:ApplicationBarIconButton x:Name="btAbout" Click="btAbout_Click" IconUri="/Assets/AppBar/questionmark.png" IsEnabled="True" Text="About"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/background03.jpg"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Height="70" Margin="0,-10,0,10">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF675868"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Image x:Name="imgTitle" Height="45" Source="/LogoCompass.png" Margin="0,13,0,1" Opacity="0.65"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="51*"/>
+                    <ColumnDefinition Width="25*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/compassBack.png" Stretch="Uniform"/>
+                </Grid.Background>
+                <Image Width="28" Height="360" Source="/Assets/arrow.compass.png" RenderTransformOrigin="0.5 0.5" Margin="214,133,63.68,133">
+                    <Image.RenderTransform>
+                        <RotateTransform x:Name="imageAngle" Angle="0"/>
+                    </Image.RenderTransform>
+                </Image>
+                <!-- <Button x:Name="OneShotLocationButton" Click="OneShotLocation_Click" Content="Get Location" Margin="0,572,0,56"/> -->
+                <!--  <Button x:Name="MapPageButton" Click="MapPage_Click" Content="Map" Margin="0,626,0,2"/> -->
+                <TextBlock x:Name="textBlockLat" Height="72" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="26.667" Grid.ColumnSpan="2"/>
+                <TextBlock x:Name="textBlockLong" Height="72" Margin="0,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="White" FontSize="26.667" Grid.ColumnSpan="2"/>
+                <TextBlock x:Name="textBlockStatus" Height="72" Margin="0,29,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="White" FontSize="26.667" Grid.ColumnSpan="2"/>
+                <TextBlock x:Name="textBlockGraus" Height="72" Margin="10,522,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Foreground="White" FontSize="26.667" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
+    

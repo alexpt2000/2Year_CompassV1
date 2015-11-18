@@ -1,0 +1,54 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:maps="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
+    
+    x:Class="CompassV1.Map"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem IsEnabled="True" x:Name="Road" Text="Road" Click="Road_Click"/>
+                <shell:ApplicationBarMenuItem IsEnabled="True" x:Name="Aerial" Text="Aerial" Click="Aerial_Click"/>
+                <shell:ApplicationBarMenuItem IsEnabled="True" x:Name="Hybrid" Text="Hybrid" Click="Hybrid_Click"/>
+                <shell:ApplicationBarMenuItem IsEnabled="True" x:Name="Terrain" Text="Terrain" Click="Terrain_Click"/>
+            </shell:ApplicationBar.MenuItems>
+            <shell:ApplicationBarIconButton x:Name="btLight" IconUri="/Assets/AppBar/new.png" IsEnabled="True" Text="Light" Click="btLight_Click"/>
+            <shell:ApplicationBarIconButton x:Name="btDark" IconUri="/Assets/AppBar/minus.png" IsEnabled="True" Text="Dark" Click="btDark_Click"/>
+
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="72"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="txTop" Text="My Location" Style="{StaticResource PhoneTextNormalStyle}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+
+            <maps:Map x:Name="mapWithMyLocation" HorizontalAlignment="Left" VerticalAlignment="Top" Height="624" Width="466" Margin="-10,0,0,0"/>
+
+
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
