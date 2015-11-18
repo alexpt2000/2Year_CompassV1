@@ -50,7 +50,7 @@ namespace CompassV1
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Error to start the compass" + ex.Message);
+                MessageBox.Show("Error to start the compass " + ex.Message);
             }
         }
 
